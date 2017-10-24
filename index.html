@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="vue@2.4.1"></script>
+	<style>	
+		html,body{
+			font-size: 10px;
+		}
+		li{
+			font-size: 1.5rem
+		}
+		h1{
+			font-size: 3rem
+		}
+		@media screen and (max-width: 960px) {
+			html,body{
+				font-size: 15px;
+			}
+
+		}
+		@media screen and (max-width: 470px) {
+			html,body{
+				font-size: 20px;
+			}
+
+		}
+		.active{
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<ul>
+			<li v-for="(item,index) in message" :class="{'active':index == 1}">{{item}}</li>
+		</ul>
+
+		<div v-html="temp"> </div>
+	</div>
+	
+
+	<script>
+		let app = new Vue({
+			el: '#app',
+			data:{
+				message: [
+					'apple','banana','oragne','peach'
+				],
+
+				temp: '<h1>你好</h1>'
+			}
+		})
+	</script>
+</body>
+</html>
